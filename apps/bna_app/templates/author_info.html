@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books and Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/author_info.css' %}">
+</head>
+<body>
+    <fieldset>
+        <h1>Name: {{authors.first_name}} {{authors.last_name}}</h1>
+        <h3>ID: {{authors.id}} </h3>
+        <p>Notes: {{authors.note}} </p>
+        <p>Book:</p>
+        <ul>
+            {% for book in books %}
+            <li> {{book.title}} </li>
+            {% endfor %}
+        </ul><br>
+        <form action="/join_book" method="POST">
+            {% csrf_token %}
+            <select name="addbook" >
+            {% for book in all_books %}
+                <option value="{{book.id}}">{{book.title}}</option>
+            {% endfor %} 
+            </select>
+            <input type="hidden" name="author_info" value="{{authors.id}}">
+            <input type="submit" value="Add">
+        </form>
+        <a href="/authors"> <button>Authors</button> </a>
+    </fieldset>
+</body>
+</html>

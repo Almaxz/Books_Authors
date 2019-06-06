@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 5px;
+}
+
+body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form {
+    margin-top: 8em;
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 3em;
+}
+    table tr td{
+        border: 1px solid black;
+        padding: 20px;
+    }
+
+.titles {
+    display: inline-block;
+}
+
+.desc {
+    display: inline-block;
+    vertical-align: top;
+} 
+
+.button {
+    padding: 5px;
+}
